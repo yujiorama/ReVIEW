@@ -176,21 +176,21 @@ module ReVIEW
     end
 
     def inline_chapref(id)
-      compile_inline @chapter.env.chapter_index.display_string(id)
+      compile_inline @chapter.book.chapter_index.display_string(id)
     rescue KeyError
       error "unknown chapter: #{id}"
       nofunc_text("[UnknownChapter:#{id}]")
     end
 
     def inline_chap(id)
-      @chapter.env.chapter_index.number(id)
+      @chapter.book.chapter_index.number(id)
     rescue KeyError
       error "unknown chapter: #{id}"
       nofunc_text("[UnknownChapter:#{id}]")
     end
 
     def inline_title(id)
-      @chapter.env.chapter_index.title(id)
+      @chapter.book.chapter_index.title(id)
     rescue KeyError
       error "unknown chapter: #{id}"
       nofunc_text("[UnknownChapter:#{id}]")

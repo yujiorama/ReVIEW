@@ -17,6 +17,7 @@ module ReVIEW
       attr_reader :book
       attr_reader :path
 
+      # backward compatible; should use Compilable#book
       def env
         @book
       end

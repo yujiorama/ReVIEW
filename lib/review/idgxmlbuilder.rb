@@ -1134,7 +1134,7 @@ module ReVIEW
         end
       else
       end
-      s = "#{chs[0]}#{@chapter.env.chapter_index.number(id)}#{chs[1]}#{@chapter.env.chapter_index.title(id)}#{chs[2]}"
+      s = "#{chs[0]}#{@chapter.book.chapter_index.number(id)}#{chs[1]}#{@chapter.book.chapter_index.title(id)}#{chs[2]}"
       if @book.config["chapterlink"]
         %Q(<link href="#{id}">#{s}</link>)
       else
@@ -1147,9 +1147,9 @@ module ReVIEW
 
     def inline_chap(id)
       if @book.config["chapterlink"]
-        %Q(<link href="#{id}">#{@chapter.env.chapter_index.number(id)}</link>)
+        %Q(<link href="#{id}">#{@chapter.book.chapter_index.number(id)}</link>)
       else
-        @chapter.env.chapter_index.number(id)
+        @chapter.book.chapter_index.number(id)
       end
     rescue KeyError
       error "unknown chapter: #{id}"
@@ -1158,9 +1158,9 @@ module ReVIEW
 
     def inline_title(id)
       if @book.config["chapterlink"]
-        %Q(<link href="#{id}">#{@chapter.env.chapter_index.title(id)}</link>)
+        %Q(<link href="#{id}">#{@chapter.book.chapter_index.title(id)}</link>)
       else
-        @chapter.env.chapter_index.title(id)
+        @chapter.book.chapter_index.title(id)
       end
     rescue KeyError
       error "unknown chapter: #{id}"

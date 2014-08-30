@@ -750,7 +750,7 @@ module ReVIEW
         end
       else
       end
-      "#{chs[0]}#{@chapter.env.chapter_index.number(id)}#{chs[1]}#{@chapter.env.chapter_index.title(id)}#{chs[2]}"
+      "#{chs[0]}#{@chapter.book.chapter_index.number(id)}#{chs[1]}#{@chapter.book.chapter_index.title(id)}#{chs[2]}"
     rescue KeyError
       error "unknown chapter: #{id}"
       nofunc_text("[UnknownChapter:#{id}]")

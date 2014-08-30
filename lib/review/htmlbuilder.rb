@@ -797,9 +797,9 @@ QUOTE
 
     def inline_chap(id)
       if @book.config["chapterlink"]
-        %Q(<a href="./#{id}#{extname}">#{@chapter.env.chapter_index.number(id)}</a>)
+        %Q(<a href="./#{id}#{extname}">#{@chapter.book.chapter_index.number(id)}</a>)
       else
-        @chapter.env.chapter_index.number(id)
+        @chapter.book.chapter_index.number(id)
       end
     rescue KeyError
       error "unknown chapter: #{id}"
@@ -808,9 +808,9 @@ QUOTE
 
     def inline_title(id)
       if @book.config["chapterlink"]
-        %Q(<a href="./#{id}#{extname}">#{compile_inline(@chapter.env.chapter_index.title(id))}</a>)
+        %Q(<a href="./#{id}#{extname}">#{compile_inline(@chapter.book.chapter_index.title(id))}</a>)
       else
-        @chapter.env.chapter_index.title(id)
+        @chapter.book.chapter_index.title(id)
       end
     rescue KeyError
       error "unknown chapter: #{id}"
