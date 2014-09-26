@@ -165,7 +165,7 @@ module ReVIEW
 
     def output_chaps(filename, config)
       $stderr.puts "compiling #{filename}"
-      cmd = "#{ReVIEW::MakerHelper.bindir}/review-compile --target=latex --level=#{config["secnolevel"]} --toclevel=#{config["toclevel"]} #{config["params"]} #{filename} > #{@path}/#{filename}"
+      cmd = "review-compile --target=latex --level=#{config["secnolevel"]} --toclevel=#{config["toclevel"]} #{config["params"]} #{filename} > #{@path}/#{filename}"
       if system cmd
         # OK
       else
