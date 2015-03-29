@@ -16,6 +16,14 @@ module ReVIEW
     def self.bindir
       Pathname.new("#{Pathname.new(__FILE__).realpath.dirname}/../../bin").realpath
     end
+    # Return executable path
+    def self.executable(filename)
+      if ENV["BUNDLE_GEMFILE"]
+        ["bundle exec", filename].join(" ")
+      else
+        [self.bindir(), filename].join("/")
+      end
+    end
 
     # Copy image files under from_dir to to_dir recursively
     # ==== Args

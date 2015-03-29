@@ -181,7 +181,7 @@ module ReVIEW
         end
       }
       call_hook("hook_afterdvipdf", config)
-      
+
       FileUtils.cp("#{@path}/book.pdf", "#{@basedir}/#{bookname}.pdf")
 
       unless config["debug"]
@@ -191,7 +191,7 @@ module ReVIEW
 
     def output_chaps(filename, config, yamlfile)
       $stderr.puts "compiling #{filename}.tex"
-      cmd = "#{ReVIEW::MakerHelper.bindir}/review-compile --yaml=#{yamlfile} --target=latex --level=#{config["secnolevel"]} --toclevel=#{config["toclevel"]} #{config["params"]} #{filename}.re > #{@path}/#{filename}.tex"
+      cmd = "#{ReVIEW::MakerHelper.executable("review-compile")} --yaml=#{yamlfile} --target=latex --level=#{config["secnolevel"]} --toclevel=#{config["toclevel"]} #{config["params"]} #{filename}.re > #{@path}/#{filename}.tex"
       if system cmd
         # OK
       else
